@@ -1,7 +1,4 @@
-from numpy import ndarray
 from pandas import DataFrame
-
-from ocha.dataset.cross_validator import CrossValidator
 
 
 class Dataset:

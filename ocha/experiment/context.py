@@ -3,8 +3,6 @@ from abc import ABC, abstractmethod
 from numpy import ndarray
 from pandas import DataFrame
 
-from ocha.dataset.dataset import Dataset
-
 
 class Context(ABC):
     def __init__(
