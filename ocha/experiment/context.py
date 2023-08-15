@@ -9,11 +9,9 @@ from ocha.dataset.dataset import Dataset
 class Context(ABC):
     def __init__(
         self,
-        dataset: Dataset | None,
         sample_oof_df: DataFrame | None,
         sample_submission_df: DataFrame | None,
     ) -> None:
-        self.dataset = dataset
         self.sample_oof_df = sample_oof_df
         self.sample_submission_df = sample_submission_df
 
