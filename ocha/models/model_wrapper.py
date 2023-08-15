@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from abc import ABC, abstractmethod
 
 from numpy import ndarray
@@ -5,8 +7,13 @@ from pandas import DataFrame, Series
 
 from ocha.models.metrics import Metrics
 from ocha.models.model_config import ModelConfig
-from ocha.models.types import FitResult
 from ocha.util.logger import FileLogger, StdoutLogger
+
+
+class FitResult:
+    model: ModelWrapper
+    oof_prediction: ndarray
+    score: float
 
 
 class ModelWrapper(ABC):

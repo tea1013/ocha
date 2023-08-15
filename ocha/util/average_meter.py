@@ -1,4 +1,9 @@
 class AverageMeter:
+    val: float = 0.0
+    avg: float = 0.0
+    sum: float = 0.0
+    count: int = 0
+
     def __init__(self) -> None:
         self.reset()
 
