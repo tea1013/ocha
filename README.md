@@ -1,3 +1,3 @@
 # ocha
 
-Data Science Libraries for kaggle, etc ...
+Handy tool for data analysis competitions!
