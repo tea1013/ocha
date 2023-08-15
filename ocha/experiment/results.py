@@ -1,7 +1,7 @@
 from numpy import ndarray
 from pandas import DataFrame
 
-from ocha.models.types import FitResult
+from ocha.models.model_wrapper import FitResult
 
 
 class TrainResult:
