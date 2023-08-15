@@ -1,12 +1,4 @@
-from pydantic import BaseModel
-
-
-class AverageMeter(BaseModel):
-    val: float = 0.0
-    avg: float = 0.0
-    sum: float = 0.0
-    count: int = 0
-
+class AverageMeter:
     def __init__(self) -> None:
         self.reset()
 

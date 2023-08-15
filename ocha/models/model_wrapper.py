@@ -2,7 +2,6 @@ from abc import ABC, abstractmethod
 
 from numpy import ndarray
 from pandas import DataFrame, Series
-from pydantic import BaseModel
 
 from ocha.models.metrics import Metrics
 from ocha.models.model_config import ModelConfig
@@ -10,7 +9,7 @@ from ocha.models.types import FitResult
 from ocha.util.logger import FileLogger, StdoutLogger
 
 
-class ModelWrapper(ABC, BaseModel):
+class ModelWrapper(ABC):
     def __init__(
         self,
         config: ModelConfig,

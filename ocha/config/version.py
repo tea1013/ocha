@@ -1,7 +1,4 @@
-from pydantic import BaseModel
-
-
-class Version(BaseModel):
+class Version:
     n: int
 
     def __init__(self, n: int) -> None:

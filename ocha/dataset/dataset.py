@@ -1,11 +1,10 @@
 from numpy import ndarray
 from pandas import DataFrame
-from pydantic import BaseModel
 
 from ocha.dataset.cross_validator import CrossValidator
 
 
-class Dataset(BaseModel):
+class Dataset:
     def __init__(
         self,
         train_X: DataFrame,

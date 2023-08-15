@@ -2,7 +2,6 @@ from abc import ABC, abstractmethod
 
 from numpy import ndarray
 from pandas.core.frame import DataFrame
-from pydantic import BaseModel
 
 from ocha.experiment.context import Context
 from ocha.experiment.results import ExperimentResult, TestResult, TrainResult, ValidResult
@@ -13,7 +12,7 @@ from ocha.util.logger import FileLogger, StdoutLogger
 from ocha.util.notification import Notification
 
 
-class ExperimentConfig(BaseModel):
+class ExperimentConfig:
     exp_name: str
     version: int
     n_fold: int

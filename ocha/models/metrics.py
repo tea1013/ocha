@@ -1,10 +1,9 @@
 from abc import ABC, abstractmethod
 
 from numpy import ndarray
-from pydantic import BaseModel
 
 
-class Metrics(ABC, BaseModel):
+class Metrics(ABC):
     def __init__(self, name: str) -> None:
         self.name = name
 

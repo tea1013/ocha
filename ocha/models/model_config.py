@@ -1,10 +1,8 @@
 import os
 from abc import ABC, abstractmethod
 
-from pydantic import BaseModel
 
-
-class ModelConfig(ABC, BaseModel):
+class ModelConfig(ABC):
     def __init__(self, save_dir: str, save_file_name: str, model_file_type: str) -> None:
         self.save_dir = save_dir
         self.save_file_name = save_file_name
