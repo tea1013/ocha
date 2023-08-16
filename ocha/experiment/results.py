@@ -1,21 +1,22 @@
 from numpy import ndarray
 from pandas import DataFrame
+from pydantic import BaseModel
 
-from ocha.models.model_wrapper import FitResult
+from ocha.models.model_wrapper import FitResults
 
 
-class TrainResult:
-    fit_results: list[FitResult]
+class TrainResult(BaseModel):
+    fit_results: FitResults
     oof_prediction: ndarray
     score: float
 
 
-class ValidResult:
+class ValidResult(BaseModel):
     oof_prediction: ndarray
     score: float
 
 
-class TestResult:
+class TestResult(BaseModel):
     test_prediction: ndarray
 
 
@@ -24,8 +25,8 @@ TrainResults = list[TrainResult]
 TestResults = list[TestResult]
 
 
-class ExperimentResult:
-    fit_results: list[FitResult] | None
+class ExperimentResult(BaseModel):
+    fit_results: FitResults | None
     oof_prediction: ndarray
     test_prediction: ndarray
     oof_df: DataFrame
@@ -34,7 +35,7 @@ class ExperimentResult:
     time: float
 
 
-class RemakeResult:
+class RemakeResult(BaseModel):
     oof_df: DataFrame
     submission_df: DataFrame
     score: float

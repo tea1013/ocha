@@ -4,21 +4,20 @@ from abc import ABC, abstractmethod
 
 from numpy import ndarray
 from pandas import DataFrame, Series
+from pydantic import BaseModel
 
 from ocha.models.metrics import Metrics
 from ocha.models.model_config import ModelConfig
 from ocha.util.logger import FileLogger, StdoutLogger
 
 
-class FitResult:
+class FitResult(BaseModel):
     model: ModelWrapper
     oof_prediction: ndarray
     score: float
 
-    def __init__(self, model: ModelWrapper, oof_prediction: ndarray, score: float) -> None:
-        self.model = model
-        self.oof_prediction = oof_prediction
-        self.score = score
+
+FitResults = list[FitResult]
 
 
 class ModelWrapper(ABC):
