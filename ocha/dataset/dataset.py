@@ -1,15 +1,46 @@
+from abc import ABC, abstractmethod
+
 from pandas import DataFrame
 
 
-class Dataset:
-    def __init__(
-        self,
-        train_X: DataFrame,
-        train_y: DataFrame,
-        test_X: DataFrame | None,
-        categorical_features: list[str] | None,
-    ) -> None:
-        self.train_X = train_X
-        self.train_y = train_y
-        self.test_X = test_X
-        self.categorical_features = categorical_features
+class Dataset(ABC):
+    def __init__(self, train: DataFrame, valid: DataFrame, test: DataFrame) -> None:
+        self.train = train
+        self.valid = valid
+        self.test = test
+
+    @property
+    @abstractmethod
+    def all_features(self) -> list[str]:
+        pass
+
+    @property
+    @abstractmethod
+    def categorical_features(self) -> list[str]:
+        pass
+
+    @property
+    def continuous_features(self) -> list[str]:
+        result = []
+        for col in self.all_features:
+            if col not in self.categorical_features:
+                result.append(col)
+
+        return result
+
+    @property
+    @abstractmethod
+    def targets(self) -> list[str]:
+        pass
+
+    @abstractmethod
+    def processing_train(self) -> None:
+        pass
+
+    @abstractmethod
+    def processing_valid(self) -> None:
+        pass
+
+    @abstractmethod
+    def processing_test(self) -> None:
+        pass
