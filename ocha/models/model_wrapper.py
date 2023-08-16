@@ -15,6 +15,11 @@ class FitResult:
     oof_prediction: ndarray
     score: float
 
+    def __init__(self, model: ModelWrapper, oof_prediction: ndarray, score: float) -> None:
+        self.model = model
+        self.oof_prediction = oof_prediction
+        self.score = score
+
 
 class ModelWrapper(ABC):
     def __init__(
