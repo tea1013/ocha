@@ -1,6 +1,6 @@
 import time
 
-from ocha.util.logger import StdoutLogger
+from ocha.common.logger import StdoutLogger
 
 
 class Timer:

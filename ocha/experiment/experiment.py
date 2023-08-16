@@ -3,13 +3,13 @@ from abc import ABC, abstractmethod
 from numpy import ndarray
 from pandas.core.frame import DataFrame
 
+from ocha.common.logger import FileLogger, StdoutLogger
+from ocha.common.notification import Notification
 from ocha.experiment.context import Context
 from ocha.experiment.results import ExperimentResult, TestResult, TrainResult, ValidResult
 from ocha.models.metrics import Metrics
 from ocha.models.model_config import ModelConfig
 from ocha.models.model_wrapper import ModelWrapper
-from ocha.util.logger import FileLogger, StdoutLogger
-from ocha.util.notification import Notification
 
 
 class ExperimentConfig:

@@ -1,7 +1,7 @@
 from numpy import ndarray
 from pandas import DataFrame
-from pydantic import BaseModel
 
+from ocha.common.base_model import BaseModel
 from ocha.models.model_wrapper import FitResults
 
 

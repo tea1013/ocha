@@ -1,6 +1,6 @@
+from ocha.common.logger import FileLogger, StdoutLogger
+from ocha.common.notification import Notification
 from ocha.config.version import Version
-from ocha.util.logger import FileLogger, StdoutLogger
-from ocha.util.notification import Notification
 
 
 class GlobalConfig:

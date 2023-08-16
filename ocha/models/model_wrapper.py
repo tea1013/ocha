@@ -4,11 +4,11 @@ from abc import ABC, abstractmethod
 
 from numpy import ndarray
 from pandas import DataFrame, Series
-from pydantic import BaseModel
 
+from ocha.common.base_model import BaseModel
+from ocha.common.logger import FileLogger, StdoutLogger
 from ocha.models.metrics import Metrics
 from ocha.models.model_config import ModelConfig
-from ocha.util.logger import FileLogger, StdoutLogger
 
 
 class FitResult(BaseModel):
