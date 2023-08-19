@@ -37,8 +37,4 @@ jobs:
             ...context.repo,
             ref: `refs/tags/${version}`,
             sha: context.sha
-          });   - name: Create Tag
-          run: |
-            VERSION="v${{ github.event.inputs.version }}"
-            git tag $VERSION
-            git push origin $VERSION
+          });
