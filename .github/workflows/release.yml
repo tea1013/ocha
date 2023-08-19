@@ -28,8 +28,13 @@ jobs:
         git config user.name "GitHub Actions"
         git config user.email "actions@github.com"
         
-    - name: Create Tag
-      run: |
-        VERSION="v${{ github.event.inputs.version }}"
-        git tag $VERSION
-        git push origin $VERSION
+    - name: Create Tag using GitHub Script
+      uses: actions/github-script@v5
+      with:
+        script: |
+          const version = `v${{ github.event.inputs.version }}`;
+          await github.repos.createRef({
+            ...context.repo,
+            ref: `refs/tags/${version}`,
+            sha: context.sha
+          });
