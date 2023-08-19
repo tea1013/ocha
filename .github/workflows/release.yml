@@ -33,8 +33,17 @@ jobs:
       with:
         script: |
           const version = `v${{ github.event.inputs.version }}`;
-          await github.repos.createRef({
-            ...context.repo,
+          await github.git.createTag({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            tag: version,
+            message: version,
+            object: context.sha,
+            type: 'commit'
+          });
+          await github.git.createRef({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
             ref: `refs/tags/${version}`,
             sha: context.sha
           });
