@@ -4,8 +4,10 @@ on:
   workflow_dispatch:
     inputs:
       version:
-        description: 'tag version'
+        description: 'tag version (ex. 1.0.0)'
         required: true
+    branches:
+      - main
 
 jobs:
   tag:
@@ -14,6 +16,13 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
       
+    - name: Check branch
+      run: |
+        if [ "${{ github.ref }}" != "refs/heads/main" ]; then
+          echo "Tagging is only allowed on the main branch."
+          exit 1
+        fi
+
     - name: Set up Git
       run: |
         git config user.name "GitHub Actions"
@@ -21,6 +30,6 @@ jobs:
         
     - name: Create Tag
       run: |
-        VERSION="${{ github.event.inputs.version }}"
+        VERSION="v${{ github.event.inputs.version }}"
         git tag $VERSION
         git push origin $VERSION

@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "ocha"
-version = "0.1.8"
+version = "0.1.9"
 description = "Handy tool for data analysis competitions!"
 authors = ["tea_e7n <tea.enanan@gmail.com>"]
 readme = "README.md"
