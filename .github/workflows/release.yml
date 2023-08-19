@@ -33,7 +33,7 @@ jobs:
       with:
         script: |
           const version = `v${{ github.event.inputs.version }}`;
-          await github.git.createRef({
+          await github.repos.createRef({
             ...context.repo,
             ref: `refs/tags/${version}`,
             sha: context.sha
