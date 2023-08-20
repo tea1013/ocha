@@ -1,0 +1,35 @@
+name: Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'tag version (ex. 1.0.0)'
+        required: true
+    branches:
+      - main
+
+jobs:
+  tag:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+      
+    - name: Check branch
+      run: |
+        if [ "${{ github.ref }}" != "refs/heads/main" ]; then
+          echo "Tagging is only allowed on the main branch."
+          exit 1
+        fi
+
+    - name: Set up Git
+      run: |
+        git config user.name "GitHub Actions"
+        git config user.email "actions@github.com"
+        
+    - name: Create Tag
+      run: |
+        VERSION="v${{ github.event.inputs.version }}"
+        git tag $VERSION
+        git push origin $VERSION
