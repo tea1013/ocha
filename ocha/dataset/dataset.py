@@ -1,4 +1,5 @@
 from abc import ABC, abstractmethod
+from typing import Any
 
 from pandas import DataFrame
 
@@ -8,6 +9,7 @@ class Dataset(ABC):
         self.train = train
         self.valid = valid
         self.test = test
+        self.processing_objects: dict[str, Any] | None = None
 
     @property
     @abstractmethod
