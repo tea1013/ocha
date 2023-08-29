@@ -40,16 +40,6 @@ class GlobalConfig:
         self.remake = remake
 
         if not self.debug:
-            self.file_logger.default(
-                [
-                    "",
-                    "",
-                    "============================================",
-                    f"version: {version.n}",
-                    "============================================",
-                    "",
-                    "",
-                ]
-            )
+            self.file_logger.default(f"version: {version.n}")
 
         self.notification.notify(f"Experiment [v{version.n}] Start.")

@@ -1,4 +1,4 @@
-from abc import ABC, abstractclassmethod
+from abc import ABC, abstractmethod
 from enum import Enum
 
 from ocha.util.env import in_kaggle
@@ -12,7 +12,7 @@ class NotificationPlatform(Enum):
 
 
 class Notification(ABC):
-    @abstractclassmethod
+    @abstractmethod
     def notify(self, body: str) -> None:
         pass
 
