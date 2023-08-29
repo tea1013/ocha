@@ -5,11 +5,9 @@ from pandas import DataFrame
 
 
 class Dataset(ABC):
-    def __init__(self, train: DataFrame, valid: DataFrame, test: DataFrame) -> None:
-        self.train = train
-        self.valid = valid
-        self.test = test
-        self.processing_objects: dict[str, Any] | None = None
+    train: DataFrame
+    valid: DataFrame
+    test: DataFrame
 
     @property
     @abstractmethod

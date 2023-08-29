@@ -23,39 +23,11 @@ class ExperimentConfig:
     notification: Notification
     is_debug: bool = False
 
-    def __init__(
-        self,
-        exp_name: str,
-        version: int,
-        n_fold: int,
-        seed: int,
-        scoring: Metrics,
-        file_logger: FileLogger,
-        std_logger: StdoutLogger,
-        notification: Notification,
-        is_debug: bool = False,
-    ) -> None:
-        self.exp_name = exp_name
-        self.version = version
-        self.n_fold = n_fold
-        self.seed = seed
-        self.scoring = scoring
-        self.file_logger = file_logger
-        self.std_logger = std_logger
-        self.notification = notification
-        self.is_debug = is_debug
-
 
 class Experiment(ABC):
-    def __init__(
-        self,
-        context: Context,
-        config: ExperimentConfig,
-        folds: list[int],
-    ) -> None:
-        self.context = context
-        self.config = config
-        self.folds = folds
+    context: Context
+    config: ExperimentConfig
+    folds: list[int]
 
     @abstractmethod
     def build_conf(self, fold: int | None) -> ModelConfig:
