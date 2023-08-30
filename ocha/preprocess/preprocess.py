@@ -5,10 +5,9 @@ from pandas import DataFrame
 
 
 class Preprocess(ABC):
-    def __init__(self, source: DataFrame) -> None:
-        self.source = source
-        self.source_processed: DataFrame | None = None
-        self.preprocessing_objects: dict[str, Any] | None = None
+    source: DataFrame
+    source_processed: DataFrame | None = None
+    preprocessing_objects: dict[str, Any] | None = None
 
     @abstractmethod
     def preprocess(self) -> None:

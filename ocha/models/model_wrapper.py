@@ -21,17 +21,10 @@ FitResults = list[FitResult]
 
 
 class ModelWrapper(ABC):
-    def __init__(
-        self,
-        config: ModelConfig,
-        scoring: Metrics,
-        file_logger: FileLogger,
-        std_logger: StdoutLogger,
-    ) -> None:
-        self.config = config
-        self.scoring = scoring
-        self.file_logger = file_logger
-        self.std_logger = std_logger
+    config: ModelConfig
+    scoring: Metrics
+    file_logger: FileLogger
+    std_logger: StdoutLogger
 
     @abstractmethod
     def build(self) -> None:

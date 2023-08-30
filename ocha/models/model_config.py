@@ -3,10 +3,9 @@ from abc import ABC, abstractmethod
 
 
 class ModelConfig(ABC):
-    def __init__(self, save_dir: str, save_file_name: str, model_file_type: str) -> None:
-        self.save_dir = save_dir
-        self.save_file_name = save_file_name
-        self.model_file_type = model_file_type
+    save_dir: str
+    save_file_name: str
+    model_file_type: str
 
     @abstractmethod
     def model_params(self) -> dict:

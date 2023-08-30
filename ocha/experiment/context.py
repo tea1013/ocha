@@ -5,17 +5,10 @@ from pandas import DataFrame
 
 
 class Context(ABC):
-    def __init__(
-        self,
-        train: DataFrame,
-        test: DataFrame | None,
-        sample_oof_df: DataFrame | None,
-        sample_submission_df: DataFrame | None,
-    ) -> None:
-        self.train = train
-        self.test = test
-        self.sample_oof_df = sample_oof_df
-        self.sample_submission_df = sample_submission_df
+    train: DataFrame
+    test: DataFrame | None
+    sample_oof_df: DataFrame | None
+    sample_submission_df: DataFrame | None
 
     @abstractmethod
     def make_oof(self, oof_prediction: ndarray) -> DataFrame:

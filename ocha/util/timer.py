@@ -1,13 +1,12 @@
 import time
 
-from ocha.common.logger import StdoutLogger
+from ocha.common.logger import Logger, StdoutLogger
 
 
 class Timer:
-    def __init__(self) -> None:
-        self.start_time = 0.0
-        self.end_time = 0.0
-        self.logger = StdoutLogger()
+    start_time: float = 0.0
+    end_time: float = 0.0
+    logger: Logger = StdoutLogger()
 
     def start(self) -> None:
         self.start_time = time.time()
