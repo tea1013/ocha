@@ -2,6 +2,7 @@ from abc import ABC, abstractmethod
 from typing import Any
 
 from pandas import DataFrame
+
 from ocha.common.base_model import BaseModel
 
 
