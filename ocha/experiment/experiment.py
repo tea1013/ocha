@@ -3,6 +3,7 @@ from abc import ABC, abstractmethod
 from numpy import ndarray
 from pandas.core.frame import DataFrame
 
+from ocha.dataset.cross_validator import CrossValidator
 from ocha.experiment.context import Context
 from ocha.experiment.results import ExperimentResult, TestResult, TrainResult, ValidResult
 from ocha.models.metrics import Metrics
@@ -15,12 +16,19 @@ class ExperimentConfig:
     n_fold: int
     seed: int
     scoring: Metrics
+    cross_validator: CrossValidator
+    folds: list[int] | None = None
 
 
 class Experiment(ABC):
     context: Context
     config: ExperimentConfig
-    folds: list[int]
+
+    def get_folds(self) -> list[int]:
+        if self.config.folds is None:
+            return [i for i in range(self.config.n_fold)]
+        else:
+            return self.config.folds
 
     @abstractmethod
     def build_conf(self, fold: int | None) -> ModelConfig:
