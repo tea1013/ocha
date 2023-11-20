@@ -3,8 +3,10 @@ from typing import Any
 
 from pandas import DataFrame
 
+from ocha.common.base_model import BaseModel
 
-class Preprocess(ABC):
+
+class Preprocess(ABC, BaseModel):
     source: DataFrame
     source_processed: DataFrame | None = None
     preprocessing_objects: dict[str, Any] | None = None
