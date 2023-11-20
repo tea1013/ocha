@@ -6,7 +6,7 @@ install:
 update:
 	poetry update
 
-fmt:
+fix:
 	poetry run black ocha
 	poetry run isort ocha
 

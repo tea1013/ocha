@@ -6,7 +6,6 @@ from numpy import ndarray
 from pandas import DataFrame, Series
 
 from ocha.common.base_model import BaseModel
-from ocha.common.logger import FileLogger, StdoutLogger
 from ocha.models.metrics import Metrics
 from ocha.models.model_config import ModelConfig
 
@@ -23,8 +22,6 @@ FitResults = list[FitResult]
 class ModelWrapper(ABC):
     config: ModelConfig
     scoring: Metrics
-    file_logger: FileLogger
-    std_logger: StdoutLogger
 
     @abstractmethod
     def build(self) -> None:
