@@ -1,4 +1,4 @@
-from common.base_model import BaseModel
+from ocha.common.base_model import BaseModel
 
 
 class GlobalConfig(BaseModel):
