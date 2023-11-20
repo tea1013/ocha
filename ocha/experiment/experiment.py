@@ -3,8 +3,6 @@ from abc import ABC, abstractmethod
 from numpy import ndarray
 from pandas.core.frame import DataFrame
 
-from ocha.common.logger import FileLogger, StdoutLogger
-from ocha.common.notification import Notification
 from ocha.experiment.context import Context
 from ocha.experiment.results import ExperimentResult, TestResult, TrainResult, ValidResult
 from ocha.models.metrics import Metrics
@@ -13,15 +11,10 @@ from ocha.models.model_wrapper import ModelWrapper
 
 
 class ExperimentConfig:
-    exp_name: str
     version: int
     n_fold: int
     seed: int
     scoring: Metrics
-    file_logger: FileLogger
-    std_logger: StdoutLogger
-    notification: Notification
-    is_debug: bool = False
 
 
 class Experiment(ABC):
