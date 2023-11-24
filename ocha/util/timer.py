@@ -1,7 +1,9 @@
 import time
 
+from ocha.common.base_model import BaseModel
 
-class Timer:
+
+class Timer(BaseModel):
     start_time: float = 0.0
     end_time: float = 0.0
 
