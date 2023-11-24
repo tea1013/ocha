@@ -19,7 +19,7 @@ class FitResult(BaseModel):
 FitResults = list[FitResult]
 
 
-class ModelWrapper(ABC):
+class ModelWrapper(ABC, BaseModel):
     config: ModelConfig
     scoring: Metrics
 

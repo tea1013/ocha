@@ -1,4 +1,7 @@
-class AverageMeter:
+from ocha.common.base_model import BaseModel
+
+
+class AverageMeter(BaseModel):
     val: float = 0.0
     avg: float = 0.0
     sum: float = 0.0

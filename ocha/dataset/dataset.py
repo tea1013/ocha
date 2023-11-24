@@ -2,8 +2,10 @@ from abc import ABC, abstractmethod
 
 from pandas import DataFrame
 
+from ocha.common.base_model import BaseModel
 
-class Dataset(ABC):
+
+class Dataset(ABC, BaseModel):
     train: DataFrame
     valid: DataFrame
     test: DataFrame

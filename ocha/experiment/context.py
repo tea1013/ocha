@@ -3,8 +3,10 @@ from abc import ABC, abstractmethod
 from numpy import ndarray
 from pandas import DataFrame
 
+from ocha.common.base_model import BaseModel
 
-class Context(ABC):
+
+class Context(ABC, BaseModel):
     train: DataFrame
     test: DataFrame | None
     sample_oof_df: DataFrame | None

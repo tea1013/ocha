@@ -3,6 +3,7 @@ from abc import ABC, abstractmethod
 from numpy import ndarray
 from pandas.core.frame import DataFrame
 
+from ocha.common.base_model import BaseModel
 from ocha.dataset.cross_validator import CrossValidator
 from ocha.experiment.context import Context
 from ocha.experiment.results import ExperimentResult, TestResult, TrainResult, ValidResult
@@ -11,7 +12,7 @@ from ocha.models.model_config import ModelConfig
 from ocha.models.model_wrapper import ModelWrapper
 
 
-class ExperimentConfig:
+class ExperimentConfig(BaseModel):
     version: int
     n_fold: int
     seed: int
@@ -20,7 +21,7 @@ class ExperimentConfig:
     folds: list[int] | None = None
 
 
-class Experiment(ABC):
+class Experiment(ABC, BaseModel):
     context: Context
     config: ExperimentConfig
 

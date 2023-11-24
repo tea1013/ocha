@@ -1,8 +1,10 @@
 import os
 from abc import ABC, abstractmethod
 
+from ocha.common.base_model import BaseModel
 
-class ModelConfig(ABC):
+
+class ModelConfig(ABC, BaseModel):
     save_dir: str
     save_file_name: str
     model_file_type: str
