@@ -2,7 +2,6 @@ name: CI
 
 on:
   push:
-  pull_request:
 
 jobs:
   lint:
@@ -18,11 +17,6 @@ jobs:
 
     - name: Set up Rye
       uses: sksat/setup-rye@v0.8.0
-
-    - name: Cache virtual environment
-      uses: actions/cache@v2
-      with:
-        key: ${{ runner.os }}-${{ hashFiles('**/pyproject.toml') }}
 
     - name: Install dependencies
       run: |
