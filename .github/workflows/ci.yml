@@ -18,6 +18,7 @@ jobs:
     - name: Set up Rye
       run: |
         ./scripts/install-rye.sh
+        echo "PATH=$PATH:$HOME/.rye/shims" >> $GITHUB_ENV
 
     - name: Install ruff
       run: |
