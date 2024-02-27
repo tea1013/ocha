@@ -20,7 +20,6 @@ jobs:
 
     - name: Set up uv
       run: |
-        rye self update
         rye config --set-bool behavior.use-uv=true
 
     - name: Install ruff
