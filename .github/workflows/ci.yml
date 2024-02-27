@@ -16,7 +16,9 @@ jobs:
         python-version: '3.11'
 
     - name: Set up Rye
-      uses: sksat/setup-rye@v0.8.0
+      run: |
+        ./scripts/install-rye.sh
+        echo "PATH=$PATH:$HOME/.rye/shims" >> $GITHUB_ENV
 
     - name: Install ruff
       run: |
