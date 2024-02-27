@@ -18,6 +18,11 @@ jobs:
     - name: Set up Rye
       uses: sksat/setup-rye@v0.8.0
 
+    - name: Set up uv
+      run: |
+        rye self update
+        rye config --set-bool behavior.use-uv=true
+
     - name: Install ruff
       run: |
         rye install ruff
