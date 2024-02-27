@@ -1,17 +1,17 @@
 .PHONY: install fmt lint
 
 install:
-	poetry install
-
-update:
-	poetry update
-
+	rye sync
+	
+lock:
+	rye lock
+	
 fix:
-	poetry run black ocha
-	poetry run isort ocha
+	rye run black ocha
+	rye run isort ocha
 
 lint:
-	poetry run pflake8 ocha
+	rye run pflake8 ocha
 
 publish:
 ifndef v

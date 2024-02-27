@@ -2,15 +2,20 @@
 
 Handy tool for data analysis competitions!
 
+## Requires
+
+- [Rye](https://rye-up.com/)
+
 ## Installation
 
 ```
 # Install latest version
-poetry add git+https://github.com/tea1013/ocha.git
+rye add ocha --git https://github.com/tea1013/ocha.git
 
 # Install specific version
-poetry add git+https://github.com/tea1013/ocha.git#v1.0.0
+rye add ocha --git https://github.com/tea1013/ocha.git --tag v0.0.0
 ```
+
 # Release
 
 1. Create Pull Request and Merge it.

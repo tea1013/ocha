@@ -2,7 +2,6 @@ name: CI
 
 on:
   push:
-  pull_request:
 
 jobs:
   lint:
@@ -16,21 +15,12 @@ jobs:
       with:
         python-version: '3.11'
 
-    - name: Install Poetry
-      run: |
-        curl -sSL https://install.python-poetry.org | python3 -
+    - name: Set up Rye
+      uses: sksat/setup-rye@v0.8.0
 
-    - name: Cache Poetry virtual environment
-      uses: actions/cache@v2
-      with:
-        path: ~/.cache/pypoetry/virtualenvs
-        key: ${{ runner.os }}-poetry-${{ hashFiles('**/pyproject.toml') }}
-        restore-keys: |
-          ${{ runner.os }}-poetry-
-
-    - name: Install dependencies using Poetry
+    - name: Install dependencies
       run: |
-        poetry install
+        rye sync
 
     - name: Lint with make
       run: |
