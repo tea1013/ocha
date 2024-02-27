@@ -16,21 +16,18 @@ jobs:
       with:
         python-version: '3.11'
 
-    - name: Install Poetry
+    - name: Install Rye
       run: |
-        curl -sSL https://install.python-poetry.org | python3 -
+        curl -sSf https://rye-up.com/get | bash
 
-    - name: Cache Poetry virtual environment
+    - name: Cache virtual environment
       uses: actions/cache@v2
       with:
-        path: ~/.cache/pypoetry/virtualenvs
-        key: ${{ runner.os }}-poetry-${{ hashFiles('**/pyproject.toml') }}
-        restore-keys: |
-          ${{ runner.os }}-poetry-
+        key: ${{ runner.os }}-${{ hashFiles('**/pyproject.toml') }}
 
-    - name: Install dependencies using Poetry
+    - name: Install dependencies
       run: |
-        poetry install
+        rye sync
 
     - name: Lint with make
       run: |
