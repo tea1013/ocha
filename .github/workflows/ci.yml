@@ -16,11 +16,8 @@ jobs:
         python-version: '3.11'
 
     - name: Set up Rye
-      uses: sksat/setup-rye@v0.8.0
-
-    - name: Set up uv
       run: |
-        rye config --set-bool behavior.use-uv=true
+        ./scripts/install-rye.sh
 
     - name: Install ruff
       run: |
