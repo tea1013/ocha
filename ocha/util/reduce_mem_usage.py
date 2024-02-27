@@ -21,11 +21,10 @@ def reduce_mem_usage(df: DataFrame, verbose: bool = True) -> DataFrame:
                     dfs.append(df[col].astype(np.int32))
                 elif c_min > np.iinfo(np.int64).min and c_max < np.iinfo(np.int64).max:
                     dfs.append(df[col].astype(np.int64))
+            elif c_min > np.finfo(np.float16).min and c_max < np.finfo(np.float32).max:
+                dfs.append(df[col].astype(np.float32))
             else:
-                if c_min > np.finfo(np.float16).min and c_max < np.finfo(np.float32).max:
-                    dfs.append(df[col].astype(np.float32))
-                else:
-                    dfs.append(df[col].astype(np.float64))
+                dfs.append(df[col].astype(np.float64))
         else:
             dfs.append(df[col])
 
