@@ -5,7 +5,7 @@ description = "Handy tool for data analysis competitions!"
 authors = [{ name = "tea_e7n", email = "tea.enanan@gmail.com" }]
 readme = "README.md"
 
-requires-python = ">=3.11"
+requires-python = ">=3.11,<3.12"
 
 dependencies = [
     "numpy>=1.25.2,<1.26",
