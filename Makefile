@@ -7,10 +7,11 @@ lock:
 	rye lock
 	
 fix:
+	ruff check ocha --fix
 	ruff format ocha
 
 lint:
-	ruff check ocha --fix
+	ruff check ocha
 
 publish:
 ifndef v
